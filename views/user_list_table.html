@@ -1,0 +1,65 @@
+
+
+<div class="table-responsive">
+    <table class="table table-bordered table-hover list" > 
+        <thead>
+            <tr>
+                <th>Sr. No.</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>User Id</th>
+                <th>Email</th>
+                <th>Phone Number</th>
+                <th>Status</th>
+                <th width="15%">Action</th>
+            </tr>
+        </thead>
+        <tbody id="user_pagination">
+            {% set serial_number = 0 %}
+            {% for user_info in users_data %}
+            <tr class="record">
+                {% set serial_number =serial_number + 1 %}                                 
+                <td class="serial_number">{{serial_number}}</td>
+                <td class="fetch_first_name capitalize">{{user_info.user.first_name}}</td>
+                <td class="fetch_last_name capitalize">{{user_info.user.last_name}}</td>
+                <td class="fetch_user_id">{{user_info.user.emp_id}}</td>
+                <td class="fetch_email">{{user_info.user.email}}</td>
+                <td class="fetch_phone_number">{{user_info.user.phone_number}}</td>
+                <td class="fetch_status">
+                    <a class="btn btn-circle btn-icon-only btn-default status" data-status="{{user_info.user.status}}" title="status" href="/users/{{user_info.id}}">
+                        <i class="fa fa-circle" ></i>
+                    </a>
+                </td>
+                <td>
+                    <a class="btn btn-circle btn-icon-only btn-default view" data-toggle="modal" title="view" data-id="{{user_info.id}}" href="#long"><i style="color:green" class="fa fa-eye"></i></a>    
+                    <a class="btn btn-circle btn-icon-only btn-default delete" title="delete" href="/users/delete/{{user_info.id}}"><i style="color:red" class="fa fa-trash" ></i></a>
+
+                </td>
+            </tr>
+            {%endfor%}
+            {% if !users_data.length %}
+            <tr><td colspan="8">There is no data</td></tr>
+            {% endif %}
+        </tbody>
+    </table>
+</div>
+<div class="text-center">
+
+</div><br><br> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

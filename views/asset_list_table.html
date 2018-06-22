@@ -1,0 +1,49 @@
+
+    <div class="table-responsive">
+        <table class="table table-bordered table-hover list" >
+            <thead>
+                <tr>
+
+                    <th>Sr.No.</th>
+                    <th>Name</th>
+                    <th>Asset Number</th>
+                    <th>Serial Number</th>
+                    <th>Category</th>
+
+                    <th>Status</th>
+                    <th width="15%">Action</th>
+                </tr>
+            </thead>
+            <tbody class="custom_pagination" id="asset_pagination">
+                {% set serial_number = 0 %}
+                {% for asset in assets %}
+                <tr class="record">                                      
+                    {% set serial_number =serial_number + 1 %}
+                    <td class="sr_no">{{serial_number}}</td>
+                    <td class="fetch_name capitalize">{{asset.Record.name}}</td>
+                    <td class="fetch_a_number">{{asset.Record.asset_number}}</td>
+                    <td class="fetch_s_number">{{asset.Record.serial_number}}</td>
+                    <td class="fetch_cat_name capitalize">{{asset.Record.category.name}}</td>                                                                         
+                    <td class="fetch_status">
+                        <a class="btn btn-circle btn-icon-only btn-default status" data-status="{{asset.Record.status}}" title="status" >
+                            <i class="fa fa-circle" ></i>
+                        </a>
+                    </td>
+                    <td>
+                        <a class="btn btn-circle btn-icon-only btn-default view " data-toggle="modal" title="view" data-id="{{asset.Key}}" href="#long"><i style="color:green" class="fa fa-eye"></i></a>
+                        <a class="btn btn-circle btn-icon-only btn-default align"  href="/assets/update/{{asset.Key}}" title="edit"><i style="color:#009CB0" class="fa fa-edit" ></i> </a>
+                        <a class="btn btn-circle btn-icon-only btn-default delete align" title="delete" href="/assets/delete/{{asset.Key}}"><i style="color:red"  class="fa fa-trash" ></i></a>
+                    </td>
+                </tr>
+                {%endfor%}
+
+                {% if !assets.length %}
+                <tr><td colspan="13">There is no Data</td></tr>
+                {% endif %}
+
+            </tbody>
+        </table>
+    </div>
+    <div class="text-center">
+
+    </div><br><br> 

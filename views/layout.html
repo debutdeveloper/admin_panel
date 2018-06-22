@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+
+<html lang="en" class="no-js">
+    <!--<![endif]-->
+    <!-- BEGIN HEAD -->
+    <head>
+        <meta charset="utf-8"/>
+        <title> Asset Management| {{title}}</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta content="width=device-width, initial-scale=1" name="viewport"/>
+        <meta content="" name="description"/>
+        <meta content="" name="author"/>
+        <meta name="timezone_custom" content="" />
+        <!-- FAVICON AND TOUCH ICONS -->
+        <link rel="shortcut icon" href="/images/icons/assetchainf.png">
+        <link rel="apple-touch-icon" href="/images/icons/assetchainf.png">
+        <link rel="icon" sizes="228x228" href="/images/icons/assetchainf.png">
+
+
+
+
+        <!--
+        change color of validation labels
+        -->
+
+        <!-- BEGIN GLOBAL MANDATORY STYLES -->
+        <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css"/>
+        <link href="../../assets/global/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+        <link href="../../assets/global/plugins/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css"/>
+
+
+        <!--   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>-->
+
+
+        <!--bootstrap css file-->
+        <link href="../../assets/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="../../assets/global/plugins/uniform/css/uniform.default.css" rel="stylesheet" type="text/css"/>
+        <link href="../../assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css" rel="stylesheet" type="text/css"/>
+        <!-- END GLOBAL MANDATORY STYLES -->
+        <!--         BEGIN PAGE LEVEL PLUGIN STYLES 
+                <link href="../../assets/global/plugins/bootstrap-daterangepicker/daterangepicker-bs3.css" rel="stylesheet" type="text/css"/>-->
+        <!-- END PAGE LEVEL PLUGIN STYLES -->
+        <!-- BEGIN PAGE STYLES -->
+        <!-- BEGIN PAGE LEVEL SCRIPTS -->
+        <script src="../../assets/global/scripts/metronic.js" type="text/javascript"></script>
+        <script src="../../assets/admin/layout/scripts/layout.js" type="text/javascript"></script>
+        <script src="../../assets/admin/pages/scripts/index.js" type="text/javascript"></script>
+        <script src="../../assets/admin/pages/scripts/tasks.js" type="text/javascript"></script>
+        <!-- END PAGE LEVEL SCRIPTS -->
+        <!-- BEGIN THEME STYLES -->
+        <link href="../../assets/global/css/components-md.css" id="style_components" rel="stylesheet" type="text/css"/>
+        <link href="../../assets/global/css/plugins-md.css" rel="stylesheet" type="text/css"/>
+        <link href="../../assets/admin/layout/css/layout.css" rel="stylesheet" type="text/css"/>
+        <link href="../../assets/admin/layout/css/themes/darkblue.css" rel="stylesheet" type="text/css" id="style_color"/>
+        <link href="../../assets/admin/layout/css/custom.css" rel="stylesheet" type="text/css"/>
+        <link href="/stylesheets/custom_admin.css" rel="stylesheet" type="text/css"/>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/pnotify/3.2.1/pnotify.css" rel="stylesheet" type="text/css"/>
+        <link href="/stylesheets/alertify.css" rel="stylesheet" type="text/css"/>
+        <!--jquery-->
+
+
+
+
+        <style>
+            .form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control {
+                cursor: default !important;
+            }
+            textarea {
+                resize: none;
+            }
+            .link_color
+            {
+                color:#578ede;
+            }
+            hr {
+                border-top-color: #a7aaae !important
+            }
+            th {
+                text-align:center !important;
+            }
+            td {
+                text-align:center !important;
+            }
+            .bootbox-body{
+                margin-top: 15px;
+            }
+            .modal-title{
+                margin-top: 15px !important;
+            }
+            body.modal-open {
+                overflow: hidden !important;
+            }
+            #header_notification_bar .dropdown dropdown-extended dropdown-notification open{
+                overflow: hidden !important;
+            }
+
+            #myModal .modal-body {
+                max-height: 400px !important;
+            }
+            .table .btn {
+                margin-top: 5px !important; 
+            }
+            .error{ color : red }
+
+            .star{ color : red }
+
+            .centered{
+                margin: 0 auto;
+            }
+            .modal-body {
+                position: relative;
+                overflow-y: auto;
+                max-height: 600px;
+                padding: 15px;
+            }
+            /*for notification panel on the top*/
+            .page-header.navbar .top-menu .navbar-nav > li.dropdown-notification .dropdown-menu .dropdown-menu-list.drowndropnotfication > li a .details .label-icon{text-align: center; width: 28px; height:28px; padding:0; display:inline-block;}
+            .page-header.navbar .top-menu .navbar-nav > li.dropdown-notification .dropdown-menu .dropdown-menu-list.drowndropnotfication > li a .details .label-icon i{ margin-left:0; margin-right: 0; }
+
+
+            .overlay {
+                height: 100%;
+                position: fixed;
+                z-index: 99999;
+                top: 0;
+                left: 0;
+                background:rgba(0,0,0, 0.8);                
+                overflow-x: hidden;
+                width:100%;
+                display:block;
+            }
+
+
+            .overlay:before { 
+                content:""; 
+                position: absolute; 
+                top:50%; 
+                left: 50%;
+                border: 6px solid #f3f3f3; /* Light grey */
+                border-top: 6px solid #3498db; /* Blue */
+                border-radius: 50%;
+                width: 50px;
+                height: 50px;
+                animation: spin 1.2s linear infinite;
+            }
+
+            @keyframes spin {
+                0% { transform: rotate(0deg); }
+                100% { transform: rotate(360deg); }
+            }
+
+            /*.overlay-content {
+                position: absolute;
+                top: 45%;
+                width: 100%;
+                text-align: center;
+            }*/
+
+            .slimScrollDiv{
+                height:auto !important
+            }
+
+            .capitalize{
+                text-transform: capitalize;
+            }
+            /*            <!--style blocks-->*/
+            .blocks-new
+            {
+                float:left;
+                width:100%;
+                background:#3a4656;
+                padding:0px;
+                padding-bottom: 15px;
+            }
+            .header-textblock{
+                text-align: center;
+                display: inline-block;
+                color: #fff;
+                font-size: 18px;
+                width: 100%;
+                font-weight: bold;
+                margin-top: 10px;
+
+                margin-bottom: 10px;
+            }
+            .blockvalueinner{
+                display:inline-block;
+                text-align: center;
+                font-size:12px;
+                color:#fff;
+                width:100%;
+                border-radius: 10px;
+                padding: 4px 3px;
+                font-weight: bold;
+                border: 1px solid #fff;
+                border-radius: 5px;
+            }
+            .fullrowfrblocks{
+                margin-top: 5px;
+                margin-bottom: 5px;
+                float:left;
+                width:100%;
+            }
+            a.blockvalueinner:hover{
+                color:#fff;
+                text-decoration: underline;
+            }
+            .manage-space{
+                padding-bottom:7px;
+            }
+            .alertify-notifier{
+                z-index:10000;
+            }
+
+            #asset_request_count {
+
+                border: 1px solid white;             
+                color: whitesmoke;
+                padding: 2px;
+                width: 40px;
+                height: 30px;
+                border-radius: 50px;
+
+            }
+            @media  (max-width: 768px) {
+                .slimScrollDiv {
+                    position: absolute;
+                    overflow: hidden;
+                    width: 200px;
+                    height: 400px;
+                    background: white;
+                    right: 170px;
+                }
+            }
+        </style>
+
+        <!-- END THEME STYLES -->
+        {% block css %}
+        {% endblock%}
+        <script type="text/javascript">
+// Set timeout variables.
+var timoutNow = 1800000; // Timeout in 30 mins.
+var logoutUrl = "/logout" // URL to logout page.
+
+var timeoutTimer;
+// Start timers.
+function StartTimers() {
+    timeoutTimer = setTimeout("IdleTimeout()", timoutNow);
+}
+
+// Reset timers.
+function ResetTimers() {
+    clearTimeout(timeoutTimer);
+    StartTimers();
+}
+
+// Logout the user.
+function IdleTimeout() {
+    window.location = logoutUrl;
+}
+        </script>
+    </head>
+    <!-- END HEAD -->
+    <!-- BEGIN BODY -->
+    <body class="page-md page-header-fixed page-quick-sidebar-over-content page-sidebar-closed-hide-logo" onload="StartTimers();" onmousemove="ResetTimers();">
+        <div id="preLoader" class="overlay" >
+            <!--            <div class="overlay-content">
+                            <img width="" height="" src="/images/loading1.gif">
+                        </div>-->
+        </div>
+        {% include "header.html" %}
+
+        <div class="clearfix">
+        </div>
+
+        <!-- BEGIN CONTAINER -->
+        <div class="page-container">
+            <!-- BEGIN SIDEBAR -->
+            {% include "left-sidebar.html" %}
+
+            <!-- END SIDEBAR -->
+            <!-- BEGIN CONTENT -->
+            <div class="page-content-wrapper">
+
+                {% block content %}
+
+                {% endblock %}
+
+            </div>
+            <!-- END CONTENT -->
+            <!-- BEGIN QUICK SIDEBAR -->
+            <a href="javascript:;" class="page-quick-sidebar-toggler"><i class="icon-close"></i></a>
+            <!-- END QUICK SIDEBAR -->
+        </div>
+        <!-- END CONTAINER -->
+        <!-- BEGIN FOOTER -->
+
+        <div class="page-footer">
+            <div class=""  style="text-align:center;color:white">
+                <center> Copyright &copy; <span id="year">2018</span> assetchaindebutinfotech.com All rights reserved.</center>
+            </div>
+            <div class="scroll-to-top">
+                <i class="icon-arrow-up"></i>
+            </div>
+        </div>
+
+
+        <!-- END FOOTER -->
+        <!-- BEGIN JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
+        <!-- BEGIN CORE PLUGINS -->
+        <script src="../../assets/global/plugins/jquery.min.js" type="text/javascript"></script>
+        <script src="../../assets/global/plugins/jquery-migrate.min.js" type="text/javascript"></script>
+
+        <!-- IMPORTANT! Load jquery-ui.min.js before bootstrap.min.js to fix bootstrap tooltip conflict with jquery ui tooltip -->
+        <script src="../../assets/global/plugins/jquery-ui/jquery-ui.min.js" type="text/javascript"></script>
+
+        <script src="../../assets/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+        <script src="../../assets/global/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js" type="text/javascript"></script>
+        <script src="../../assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
+        <script src="../../assets/global/plugins/jquery.blockui.min.js" type="text/javascript"></script>
+        <script src="../../assets/global/plugins/jquery.cokie.min.js" type="text/javascript"></script>
+        <script src="../../assets/global/plugins/uniform/jquery.uniform.min.js" type="text/javascript"></script>
+        <script src="../../assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js" type="text/javascript"></script>
+        <!-- END CORE PLUGINS -->
+        <!-- BEGIN PAGE LEVEL PLUGINS -->
+        <!-- Begin Draw Chart Plugins -->
+        <script src="../../assets/global/plugins/flot/jquery.flot.min.js" type="text/javascript"></script>
+        <script src="../../assets/global/plugins/flot/jquery.flot.resize.min.js" type="text/javascript"></script>
+        <script src="../../assets/global/plugins/flot/jquery.flot.categories.min.js" type="text/javascript"></script>
+        <!-- End Draw Chart Plugins -->
+
+        <!-- Begin Date picker Plugins -->
+        <!--        <script src="../../assets/global/plugins/bootstrap-daterangepicker/moment.min.js" type="text/javascript"></script>-->
+        <!--        <script src="../../assets/global/plugins/bootstrap-daterangepicker/daterangepicker.js" type="text/javascript"></script>-->
+        <!-- End Date picker Plugins --> 
+
+        <!-- add jquery validation script-->
+        <script src="../../assets/global/plugins/jquery-validation/js/jquery.validate.min.js" type="text/javascript"></script>
+        <script src="../../assets/global/plugins/jquery-validation/js/additional-methods.min.js" type="text/javascript"></script>
+
+        <!-- END PAGE LEVEL PLUGINS -->
+
+        <!-- include get_notifications js file -->
+        <script src="/javascripts/get_notifications.js" type="text/javascript"></script>
+        <script src="/javascripts/moment.js" type="text/javascript"></script>
+        <script src="/javascripts/moment-timezone.js" type="text/javascript"></script>
+        <script src="/javascripts/socket.js" type="text/javascript"></script>
+        <script src="/javascripts/pnotify.all.min.js" type="text/javascript"></script>
+        <script src="/javascripts/alertify.js" type="text/javascript"></script>
+
+
+        <script src='https://s3.amazonaws.com/instabug-pro/sdk_releases/instabugsdk-1.2.1-beta.min.js'></script>
+
+
+        {% block js%}
+
+        {% endblock %}
+
+
+        <!--        <div id="preLoader" class="overlay" style="width:100%">
+                    <div class="overlay-content">
+                        <img width="" height="" src="/images/loading1.gif">
+                    </div>
+                </div>-->
+        <script>
+
+        jQuery(document).ready(function () {
+//            token = sessionStorage;
+//            console.log("token---------------------------------------------------")
+//            console.log(window.sessionStorage);
+            $('#asset_request_count').hide();
+            var d = new Date();
+            var n = d.getFullYear();
+            $("#year").html(n);
+            Metronic.init(); // init metronic core componets
+            Layout.init(); // init layout
+            Index.init();
+            Tasks.initDashboardWidget();
+//            document.getElementById("preLoader").style.width = "0%";
+            $("meta[name='timezone_custom']").attr("content", moment.tz.guess());
+            $.cookie("time_zone_name", moment.tz.guess());
+
+
+            // handle sidebar show/hide
+            var handleBlocksHideShow = function () {
+                let find = $('.page-sidebar-menu').hasClass('page-sidebar-menu-closed');
+//                alert(find);
+                if (find) {
+                    $('.blocks-new').hide();
+                } else {
+                    $('.blocks-new').show();
+                }
+            }
+            handleBlocksHideShow();
+            $(document).on("click", ".blockshow", function () {
+                handleBlocksHideShow();
+            })
+
+
+            //ajax setup
+            $.ajaxSetup({
+                beforeSend: function () {
+                    document.getElementById("preLoader").style.display = "block";
+                },
+                 error: function (xhr, status, error) {
+                           alertify.set('notifier', 'position', 'top-right');
+                             if(xhr.responseJSON){
+                                  
+                                   alertify.error("Error : " + xhr.responseJSON.error);
+                             }
+                             else{
+                                 console.log(xhr);
+                                   alertify.error("An error occured: " + xhr.status + " " + xhr.statusText);
+                                 // alertify.error(xhr.statusText);
+                             }
+//                            
+                        },
+                complete: function (xhr, stat) {
+                    document.getElementById("preLoader").style.display = "none";
+                }
+                //    timeout: 30000 // sets timeout to 3 seconds
+            });
+            //animation effects
+
+//            $("#special_effect").click(function () {
+            var socket = io("http://assetchainapi.debutinfotech.com:3002");
+//            var socket = io("http://192.168.0.99:3001");
+
+//block added event
+            socket.on("block_added", (result) => {
+                console.log("result");
+                console.log(result);
+                //set dtnamic blocks
+                var height = result.height;
+                var length = height - 7;
+                var content = "";
+                for (var j = 0, i = length; i < height; i++) {
+                    var id = "block" + j;
+                    content += '<span id=' + id + ' class="col-md-4 col-sm-4 col-xs-4 manage-space"><a class="blockvalueinner" href="/block/' + i + '"> #' + i + '</a></span>'
+                    j++;
+                }
+                $(".fullrowfrblocks").html(content);
+                $("#block0").animate({
+                    right: '70%',
+                }, "slow");
+                $("#block1").animate({
+                    right: '30%',
+                }, "slow");
+                $("#block2").animate({
+                    right: '35%',
+                }, "slow");
+                $("#block3").animate({
+
+                    left: '60%',
+                    bottom: '33'
+
+                }, "slow");
+                $("#block4").animate({
+
+                    right: '30%',
+                }, "slow");
+                $("#block5").animate({
+
+                    right: '35%',
+                }, "slow");
+                $("#block6").animate({
+
+                    left: '60%',
+                    bottom: '33'
+
+                }, "slow");
+
+//                $.ajax({
+//                    url: '/block',
+//                    data: {"socket": true},
+//                    type: 'GET',
+//                    beforeSend: function () {
+//
+//                    },
+//                    success: function (result) {
+//                        console.log(result.height);
+//                        var height = result.height;
+//                        var length = height - 7;
+//                        var content = "";
+//                        for (var j = 0, i = length; i < height; i++) {
+//                            var id = "block" + j;
+//                            content += '<span id=' + id + ' class="col-md-4 col-sm-4 col-xs-4 manage-space"><a class="blockvalueinner" href="/block/' + i + '"> #' + i + '</a></span>'
+//                            j++;
+//                        }
+//                        $(".fullrowfrblocks").html(content);
+//                        $("#block0").animate({
+//                            right: '70%',
+//                        }, "slow");
+//                        $("#block1").animate({
+//                            right: '30%',
+//                        }, "slow");
+//                        $("#block2").animate({
+//                            right: '35%',
+//                        }, "slow");
+//                        $("#block3").animate({
+//
+//                            left: '60%',
+//                            bottom: '33'
+//
+//                        }, "slow");
+//                        $("#block4").animate({
+//
+//                            right: '30%',
+//                        }, "slow");
+//                        $("#block5").animate({
+//
+//                            right: '35%',
+//                        }, "slow");
+//                        $("#block6").animate({
+//
+//                            left: '60%',
+//                            bottom: '33'
+//
+//                        }, "slow");
+////             
+//                    },
+//                    error: function (xhr) {
+//                        console.log(xhr.status);
+//                    },
+//                    complete: function (xhr, stat) {
+//
+//                    }
+//                });
+            });
+//request added event
+            var count = 0;
+
+            socket.on("request_added", (data) => {
+                $.ajax({
+                    url: '/requests/filter',
+                    type: 'POST',
+                    beforeSend: function () {
+
+                    },
+                    success: function (result) {
+                        alertify.set('notifier', 'position', 'top-right');
+                        alertify.success('!!!! Request added !!!!');
+                        console.log("socketresult");
+                        console.log(result);
+                        $("#ajaxResponce").html(result);
+                        count++;
+                        $('#asset_request_count').text(count);
+                        $('#asset_request_count').show();
+//                        asset_request_count
+//                        let message="";
+//                        if (count == 1) {
+//                            message += '<p>' + count + ' new request has arrived.</p>'
+//                        } else {
+//
+//                            message += '<p>' + count + ' new requests has arrived.</p>'
+//
+//                        }
+//                        $('#asset_request_count').text(count);
+//                        $('#asset_request_content').html(message);
+
+
+                    },
+                    error: function (err) {
+                        console.log(err);
+                    },
+                    complete: function (xhr, stat) {
+
+                    }
+                });
+            });
+            //handover action from user
+            socket.on("handover_action", (data) => {
+                // alert("handover_action");
+                console.log("handover_action");
+                // get_request();
+                $.ajax({
+                    url: '/requests/filter',
+                    type: 'POST',
+                    beforeSend: function () {
+
+                    },
+                    success: function (result) {
+                        console.log("handover result");
+                        // console.log(result);
+                        $("#ajaxResponce").html(result);
+                    },
+                    error: function (xhr) {
+                        console.log(xhr);
+                    },
+                    complete: function (xhr, stat) {
+
+                    }
+
+                });
+            });
+            document.getElementById("preLoader").style.display = "none";
+        });
+
+
+        //feedback form
+        ibgSdk.init({
+            token: '3e87a4c9d7b367a0c3b008f69e6fc53d'
+        });
+
+        </script>
+
+        <!-- END JAVASCRIPTS -->
+    </body>
+    <!-- END BODY -->
+</html>

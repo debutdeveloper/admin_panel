@@ -1,0 +1,202 @@
+{% extends "./layout.html" %}
+
+{% block css %}
+<link href="../../assets/global/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+<!--<link rel="stylesheet" type="text/css" href="/stylesheets/clientside_pagination.css"/>-->
+
+<style>
+
+    .view td,th{
+        text-align: left
+    }
+
+    .desc{
+        font-size:20px;
+    }
+    .astyle{
+        color:#FFF
+    }
+    .more .astyle:hover {
+        color: #1e1e1e;
+    }
+    .dashboard-stat .details {
+        position: relative;
+        padding: 15px;
+
+    }
+    .dashboard-stat .details .desc {
+        text-align: center;
+
+    }
+    dashboard-stat.green-haze .visual > i {
+        z-index: 0;
+    }
+    .placetext{
+        text-align: center;
+        color:white;
+        font-size:11px;
+    }
+</style>
+<link rel="stylesheet" type="text/css" href="/stylesheets/jPages.css"/>
+<link rel="stylesheet" type="text/css" href="/stylesheets/customjpage.css"/>
+
+{% endblock%}
+
+
+{% block content %}
+<div class="page-content">
+    <!-- BEGIN PAGE HEADER-->
+    <h3 class="page-title">
+        {{title}}
+    </h3>
+    <div class="page-bar">
+        <ul class="page-breadcrumb">
+            <li>
+                <i class="fa fa-home"></i>
+                <a href="/category">Manage Category</a>
+            </li>
+        </ul>
+    </div>
+    <div class="row"><br/></div>
+    {% include "./flashMessage.html" %}<!--include file for flash messages -->
+    <!--    <div class="portlet-body list-category">-->
+    <!--div for paging-->
+    
+    <div class="row page" id="category_pagination">
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+            <div class="dashboard-stat purple-plum manage_pagination">
+                <div class="visual">
+                    <i class="fa fa-comments"></i>
+                </div>
+                <div class="details">
+                    <div class="desc">
+                        Create New Category
+                    </div>
+                </div>
+                <a class="more" href="category/add">
+                    <i class="fa fa-plus-circle fa-3x"></i>
+                </a>
+            </div>
+        </div>
+        {%for category in categories %}
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 ">
+            <div class="dashboard-stat green-haze manage_pagination">
+                <div class="visual">
+                    <i class="fa fa-comments"></i>
+                </div>
+                <div class="details">
+                    <div class="desc">{{category.Record.name}}</div>
+                    <div class="placetext"></div>
+                </div>
+                <input type="hidden" class="fetch_status" value="{{category.Record.status}}" >
+                <div class="more">
+                    <a class="astyle" style="float: left;"  title="Edit"  href="category/update/{{category.Key}}">
+                        <i class="fa fa-pencil-square-o fa-3x"></i>
+                    </a>          
+                    <a class="astyle delete" style="float: right;"  title="Delete"  href="/category/delete/{{category.Key}}">
+                        <i class="fa fa-trash-o fa-3x"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        {% endfor %}
+
+
+    </div>
+    <div class="row pagination-section"></div>
+    <div class="clearfix">
+    </div>
+</div>
+
+{%endblock%}
+
+{%block js%}
+<script src="../../assets/admin/pages/scripts/form-validation.js"></script>
+<script src="../../assets/global/plugins/bootbox/bootbox.min.js" type="text/javascript"></script>
+
+<script src="../../assets/admin/pages/scripts/ui-alert-dialog-api.js"></script>
+<!--<script src="/pagination_module/jquery-paginate.min.js"></script>-->
+<script src="/javascripts/jPages.js"></script>
+<script>
+$(document).ready(function () {
+    $(".pagination-section").jPages({
+        containerID: "category_pagination",
+        perPage: 12,
+        first: "first",
+        previous: "previous",
+        next: "next",
+        last: "last"
+    });
+
+
+    //set pagination
+//    $('#category_pagination').paginate({
+//        limit: 8,
+//        childrenSelector: 'div > .manage_pagination',
+//        previous: true,
+//
+//        previousText: '<',
+//
+//        next: true,
+//        nextText: '>',
+//
+//        first: true,
+//
+//        firstText: '<<',
+//
+//        last: true,
+//
+//        lastText: '>>',
+//
+//        navigationWrapper: null,
+//
+//        navigationClass: 'page-navigation',
+//    });
+    //*** change the color of category on the basis of active inactive**/
+    $('.dashboard-stat').each(function (i, obj) {
+        var statusVal = $(this).children('.fetch_status').val();
+        if (statusVal == 0) {
+            $(this).addClass("red-intense");
+            $(this).children('.details').children('.placetext').text("Inactive");
+        } else {
+            $(this).children('.details').children('.placetext').text("Active");
+        }
+
+    });
+
+//******on delete  category
+//    $('a.delete').on('click', function (event) {
+//        var href = $(this).attr('href');
+//        event.preventDefault();
+//        bootbox.confirm("Are you sure you want to delete the category?", function (result) {
+//            if (result) {
+//
+//                $.ajax({
+//                    url: href,
+//                    type: 'DELETE',
+//                    success: function (result) {
+//
+////                        setTimeout(function () {
+////                            document.getElementById("preLoader").style.width = "0%";
+//                            window.location = '/category'
+////                        }, 4000);
+//                    }
+////                    ,
+////                    error: function (err) {
+////                        document.getElementById("preLoader").style.width = "0%";
+//////                        setTimeout(function () {
+////                            window.location = '/category'
+//////                        }, 4000);
+////                    }
+//                });
+//            }
+//        });
+//
+//    });
+
+});
+</script>
+<script src="../javascripts/developer.js"></script>
+
+{%endblock%}

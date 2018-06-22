@@ -1,0 +1,33 @@
+/*********admin pannel custom classes******************/
+/*for header-logo in admin pannel*/
+.custom_for_logo{
+    margin: 7px;
+}
+.rating_display{
+    color: #26A69A;   
+}
+.anchor_username{
+    color: #26A69A;
+    font-weight: bold;
+}
+.anchor_username:hover{
+    text-decoration: none;
+    color: #C23F44;
+    font-weight: bold;
+}
+/*for range-slider background color*/
+.noUi-connect {
+    background: #3fb8af none repeat scroll 0 0 !important;
+}
+.hr_booking_history{background-color: black; height: 1px;}
+.label_booking_history{color:green; font-size:20px;}
+.padding-class-icon{float: left;padding: 25px 10px;}
+.display_img_bg{height: 76px;width:236px;}
+.display_img_icon{height: 80px;width:80px;}
+
+.page-header.navbar .top-menu .navbar-nav > li.dropdown-extended .dropdown-menu .dropdown-menu-list {
+    padding: 8px;
+}
+.notification_accept{
+   padding: 4px 10px 4px 8px; 
+}
