@@ -1,4 +1,4 @@
-﻿﻿# <b>AssetChain</b>
+﻿# <b>AssetChain</b>
 
 <p align="center">
   <img src="./img1.png" width="800"/>
