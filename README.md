@@ -132,7 +132,7 @@ https://github.com/debutdeveloper/admin_panel
 1. <b>Admin Panel</b> can be accessed by this url [assetchain.debutinfotech.com](http://assetchain.debutinfotech.com)
  
 2. <b>Mobile app</b> to access AssetChain can be downloaded from the [Google Play store](https://play.google.com/store/apps/details?id=com.flutter.debutassets) and the [Apple App store](https://itunes.apple.com/us/app/id1391618573)
-
+<!--
 <hr>
 
 # AssetChain FAQs
@@ -150,5 +150,6 @@ If you have any ideas on how to improve the project, please reach out! Specifica
     -Did your knowledge grow by the end of the tutorial?
     -Was something particularly painful?
     -Did it make you have an existential crisis and you -are suddenly unsure of what it means to be, you?
+  
 
 <!-- Use the [GitHub Issues]() section to communicate any improvements/bugs and pain points! -->
